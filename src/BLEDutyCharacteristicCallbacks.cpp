@@ -13,10 +13,10 @@ void BLEDutyCharacteristicCallbacks::onWrite(BLECharacteristic* pCharacteristic)
 	switch (length)
 	{
         case 1:
-            *_pDuty = static_cast<int8_t>(value[0]) * 2;
+            *_pDuty = static_cast<int8_t>(value[0]);
             break;
         case 2:
-            *_pDuty = static_cast<int16_t>(value[0] + (value[1] << 8)) * 2;
+            *_pDuty = static_cast<int16_t>(value[0] + (value[1] << 8));
             break;
         default:
             // それ以外は無視

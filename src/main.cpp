@@ -10,7 +10,7 @@
 
 constexpr const int32_t pow_int32(const int32_t x, const int32_t y)
 {
-    return y > 0 ? x * pow_int32(x, y - 1) : x;
+    return y > 0 ? x * pow_int32(x, y - 1) : 1;
 }
 
 namespace
@@ -96,7 +96,7 @@ void setup()
 
     pAdvertising = BLEDevice::getAdvertising();
     pAdvertising->addServiceUUID(service_uuid);
-    pAdvertising->setScanResponse(false);
+    pAdvertising->setScanResponse(true);
     pAdvertising->setMinPreferred(0x06);
     pAdvertising->setMinPreferred(0x12);
     pAdvertising->start();
